@@ -1,21 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Counter from "./Counter.jsx";
-import 'bootstrap';
-
 
 //create your first component
 const Home = () => {
-  return <div className="home">
-    <Counter 
-      sixNumber = '0'
-      fiveNumber = '0'
-      fourNumber = '0'
-      thirdNumbe = '0'
-      secondtNumber = '0'
-      firstNumber = '0'
-      />
-  </div>;
+  const [seconds, setSeconds] = useState(0);
+  useEffect(() => {
+    var interval = setInterval(() => setSeconds(seconds + 1), 1000);
+    console.log(seconds);
+    return () => clearInterval(interval);
+  }, [seconds]);
 
+
+  return (
+    <div className="home">
+      <Counter seconds={seconds} />
+    </div>
+  );
 };
 
 export default Home;
