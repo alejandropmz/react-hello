@@ -12,18 +12,53 @@ const Home = () => {
   // y el segundo parametro es una función la cual podemos llamar cuando queramos actualizar el estado
   // del primer parámetro.
 
+  const [miliSeconds, setMiliSeconds] = useState(0);
   const [seconds, setSeconds] = useState(0); 
+  const [minutes, setMinutes] = useState(0);
+  
 
-  //El useEffect 
+  //MILISENGUNDOS
+  useEffect(() => {
+    let miliSecondsInterval = setInterval(() => setMiliSeconds(miliSeconds + 1), 1);
+    console.log(miliSecondsInterval)
+    if (miliSeconds == 100){
+      setMiliSeconds(miliSeconds * 0);
+    }
+    return () => clearInterval(miliSecondsInterval);
+  }, [miliSeconds]);
+
+
+
+  //SEGUNDOS
   useEffect(() => {
     let interval = setInterval(() => setSeconds(seconds + 1), 1000);
+    if (seconds == 60){
+      setSeconds(seconds * 0);
+    }
     return () => clearInterval(interval);
   }, [seconds]);
 
 
+  //MINUTES
+  useEffect(() => {
+    let interval = setInterval(() => setMinutes(minutes + 1), 60000);
+    if (minutes == 60){
+      setMinutes(minutes * 0);
+    }
+    return () => clearInterval(interval);
+  }, [minutes]);
+
+  
+  
+
+
   return (
     <div className="home">
-      <Counter seconds={seconds} />
+      <Counter
+      minutes = {minutes}
+      seconds={seconds} 
+      miliSeconds = {miliSeconds}
+      />
     </div>
   );
 };

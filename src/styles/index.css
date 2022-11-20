@@ -2,20 +2,31 @@
   margin-top: 150px;
 }
 
+body {
+  background: #2b2a33;
+}
+
 .container {
   display: flex;
   justify-content: center;
 }
 .clock {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
   font-size: 40px;
   border: 2px solid gray;
   border-radius: 20px;
   width: 50%;
+  padding: 20px;
+  background-color: white;
+  border: 5px solid #252526;
 }
 
 .clock div {
-  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 25%;
 }
