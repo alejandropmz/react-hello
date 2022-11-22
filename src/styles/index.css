@@ -12,14 +12,14 @@ body {
 }
 .clock {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-flow: row wrap;
+  justify-content: space-around;
   align-items: center;
   font-size: 40px;
   border: 2px solid gray;
   border-radius: 20px;
-  width: 60%;
-  padding: 20px;
+  width: 50%;
+  padding: 20px 80px;
   background-color: white;
   border: 5px solid #252526;
 }
@@ -30,3 +30,9 @@ body {
   margin: auto;
   width: 25%;
 }
+
+.firstNumber {
+  font-family: 'Orbitron', sans-serif;
+}
+
+
