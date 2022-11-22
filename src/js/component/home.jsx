@@ -20,20 +20,28 @@ const Home = () => {
   //MILISENGUNDOS
   useEffect(() => {
     let miliSecondsInterval = setInterval(() => setMiliSeconds(miliSeconds + 1), 1);
-    console.log(miliSecondsInterval)
     if (miliSeconds == 100){
-      setMiliSeconds(miliSeconds * 0);
+      setMiliSeconds(0)
+      setSeconds(seconds + 1);
+    }
+    if (seconds == 60){
+      setSeconds(0);
+      setMinutes(minutes + 1)
+    }
+    if (minutes == 60){
+      setMiliSeconds(0)
+      setSeconds(0)
+      setMinutes(0)
     }
     return () => clearInterval(miliSecondsInterval);
   }, [miliSeconds]);
 
 
-
   //SEGUNDOS
-  useEffect(() => {
+  /**useEffect(() => {
     let interval = setInterval(() => setSeconds(seconds + 1), 1000);
     if (seconds == 60){
-      setSeconds(seconds * 0);
+      setSeconds(0);
     }
     return () => clearInterval(interval);
   }, [seconds]);
@@ -43,10 +51,10 @@ const Home = () => {
   useEffect(() => {
     let interval = setInterval(() => setMinutes(minutes + 1), 60000);
     if (minutes == 60){
-      setMinutes(minutes * 0);
+      setMinutes(0);
     }
     return () => clearInterval(interval);
-  }, [minutes]);
+  }, [minutes]);*/
 
   
   
